@@ -27,6 +27,10 @@ class SkyLayer {
     fill(56+20, 174+30, 254+20);
     rect(0, this.y, width, this.h);
 
+    // draw the sun
+    fill(255, 255, 200);
+    ellipse(width-100, 100, 60, 60);
+
     // display the clouds
     for (int i = 0; i < this.num; i++) {
       this.clouds[i].display();
