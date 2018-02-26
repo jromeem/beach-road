@@ -61,17 +61,31 @@ class Island {
   
   // display the island
   void display() {
+
     fill(this.c);
     arc(this.x, this.y, this.w+this.w/2, this.w-15, PI, TWO_PI);
-    fill(8+20, 75+20, 195+20);
-    rect(this.x-this.w/2 - 5, this.y, this.w + 10, 3);
-    fill(8-20, 75-20, 195-20);
-    rect(this.x-this.w/2, this.y+3, this.w, 2);
     
+    color shadedBlue = color(20, 80, 185);
+    color oceanBlue = color(8+20, 75+20, 195+20);
+    this.islandGradient(int(this.x-(this.w+this.w/2)/2 - 2), int(this.y), this.w+this.w/2 + 4, 20, shadedBlue, oceanBlue);
+
     // create and manage movement of the island
     this.x += this.s;
     if (this.x < -this.w) {
       this.x = random(width+this.w, 3*width/2 + this.w); 
     }
+  }
+
+  // create a color gradient
+  void islandGradient(int x, int y, float w, float h, color c1, color c2) {
+    noFill();
+    // top to bottom gradient
+    for (int i = y; i <= y+h; i++) {
+      float inter = map(i, y, y+h, 0, 1);
+      color c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+    }  
+    noStroke();
   }
 }

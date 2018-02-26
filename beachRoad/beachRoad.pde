@@ -7,6 +7,8 @@ OceanLayer ol;
 RoadLayer rl;
 CarLayer cl;
 
+PImage canvas;
+
 void setup() {
   size(800, 600);
   noStroke();
@@ -26,4 +28,8 @@ void draw() {
   ol.display();
   rl.display();
   cl.display();
+
+  canvas = copy();
+  tint(245, 240, 200);
+  image(canvas, 0, 0);
 }
