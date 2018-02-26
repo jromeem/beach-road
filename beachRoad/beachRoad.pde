@@ -2,7 +2,6 @@
 // ~you are awesome~
 
 // create the layers
-SkyLayer sl;
 OceanLayer ol;
 RoadLayer rl;
 CarLayer cl;
@@ -12,17 +11,21 @@ void setup() {
   noStroke();
 
   // instantiate each of the layers
-  sl = new SkyLayer(0, 300, 0.05, 8);
   ol = new OceanLayer(300, 250, -2.5, 10);
   rl = new RoadLayer(520, 70, -12, 8);
+
+  // draw the car
   cl = new CarLayer(180, 545, 25, 15);
 }
 
 void draw() {
   background(0);
 
+  // draw the sky
+  fill(75, 205, 255);
+  rect(0, 0, width, height);
+
   // draw each layer
-  sl.display();
   ol.display();
   rl.display();
   cl.display();
