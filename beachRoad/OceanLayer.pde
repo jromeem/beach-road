@@ -22,7 +22,7 @@ class OceanLayer {
   // display the ocean
   void display() {
     // create the ocean
-    fill(8+40, 75+40, 195+40);
+    fill(8+20, 75+20, 195+20);
     rect(0, this.y, width, this.h);
     
     // display the islands
@@ -56,7 +56,7 @@ class Island {
   
   void display() {
     fill(this.c);
-    arc(this.x, this.y, this.w, this.w, PI, TWO_PI);
+    arc(this.x, this.y, this.w+this.w/2, this.w-15, PI, TWO_PI);
     fill(8+20, 75+20, 195+20);
     rect(this.x-this.w/2 - 5, this.y, this.w + 10, 3);
     fill(8-20, 75-20, 195-20);

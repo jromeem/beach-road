@@ -22,7 +22,7 @@ class SkyLayer {
   // display the sky
   void display() {
     // create the sky
-    fill(56, 174, 254);
+    fill(56+20, 174+30, 254+20);
     rect(0, this.y, width, this.h);
 
     // display the clouds
