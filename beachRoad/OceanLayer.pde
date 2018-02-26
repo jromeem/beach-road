@@ -52,9 +52,9 @@ class Island {
     // map the size of the island to the distance from the horizon
     this.w = map(y, boundingY, boundingY+boundingHeight, 20, 150)+random(50);
 
-    this.h = this.w*3/4-random(30);   // assigns a height
     this.x = x;   // assigns the x-position
     this.y = y;   // assigns the y-position
+    this.h = this.w*3/4-random(30);   // assigns a height
 
     // lerp the Island's green to the distance from the horizon
     color from = color(64, 115, 158);
@@ -72,7 +72,7 @@ class Island {
     // ocean shadow gradient under the island
     color shadedBlue = color(20, 80, 185);
     color oceanBlue = color(8+20, 75+20, 195+20);
-    this.islandGradient(int(this.x-(this.w+this.w/2)/2 - 2), int(this.y), this.w+this.w/2 + 4, 20, shadedBlue, oceanBlue);
+    this.colorGradient(int(this.x-(this.w+this.w/2)/2 - 2), int(this.y), this.w+this.w/2 + 4, 20, shadedBlue, oceanBlue);
 
     // create and manage movement of the island
     this.x += this.s;
@@ -82,7 +82,7 @@ class Island {
   }
 
   // create a color gradient
-  void islandGradient(int x, int y, float w, float h, color c1, color c2) {
+  void colorGradient(int x, int y, float w, float h, color c1, color c2) {
     noFill();
     // top to bottom gradient
     for (int i = y; i <= y+h; i++) {

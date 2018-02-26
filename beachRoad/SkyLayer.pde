@@ -42,11 +42,11 @@ class SkyLayer {
     rect(0, this.y, width, this.h);
     fill(deepBlue);
     rect(0, this.y, width, this.y+this.h/3);
-    this.skyGradient(0, int(this.y+this.h/3), width, this.h/2, deepBlue, lightBlue);
+    this.colorGradient(0, int(this.y+this.h/3), width, this.h/2, deepBlue, lightBlue);
   }
 
   // create a color gradient
-  void skyGradient(int x, int y, float w, float h, color c1, color c2) {
+  void colorGradient(int x, int y, float w, float h, color c1, color c2) {
     noFill();
     // top to bottom gradient
     for (int i = y; i <= y+h; i++) {
