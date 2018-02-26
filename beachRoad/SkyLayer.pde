@@ -23,15 +23,41 @@ class SkyLayer {
 
   // display the entire layer: (sky, clouds)
   void display() {
-    // create the sky
-    fill(56+20, 174+30, 254+20);
-    rect(0, this.y, width, this.h);
+    // display the sky
+    this.displaySky();
 
     // display the clouds
     for (int i = 0; i < this.num; i++) {
       this.clouds[i].display();
     }
   }
+
+  // create a sky with a gradient
+  void displaySky() {
+    // create the sky
+    color lightBlue = color(151+20, 219+20, 254+20);
+    color deepBlue = color(46+10, 154+20, 254+20);
+
+    fill(lightBlue);
+    rect(0, this.y, width, this.h);
+    fill(deepBlue);
+    rect(0, this.y, width, this.y+this.h/3);
+    this.skyGradient(0, int(this.y+this.h/3), width, this.h/2, deepBlue, lightBlue);
+  }
+
+  // create a color gradient
+  void skyGradient(int x, int y, float w, float h, color c1, color c2) {
+    noFill();
+    // top to bottom gradient
+    for (int i = y; i <= y+h; i++) {
+      float inter = map(i, y, y+h, 0, 1);
+      color c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+    }  
+    noStroke();
+  }
+
 }
 
 // =============================================================================
