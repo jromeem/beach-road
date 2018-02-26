@@ -25,6 +25,10 @@ void draw() {
   fill(75, 205, 255);
   rect(0, 0, width, height);
 
+  // draw the sun
+  fill(255, 255, 200);
+  ellipse(width-100, 100, 60, 60);
+
   // draw each layer
   ol.display();
   rl.display();
