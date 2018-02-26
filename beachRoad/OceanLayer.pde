@@ -42,29 +42,34 @@ class Island {
   float s;  // speed
   color c;  // color
   float w;  // width
+  float h;  // height
   
   // Island constructor
   Island(float x, float y, float boundingY, float boundingHeight, float s) {
-    this.x = x;   // assigns the x-position
-    this.y = y;   // assigns the y-position
-
     // map the Island's speed to to the distance from the horizon
     this.s = map(y, boundingY, boundingY+boundingHeight, -0.1, s);
     
     // map the size of the island to the distance from the horizon
-    this.w = map(y, boundingY, boundingY+boundingHeight, 20, 150);
+    this.w = map(y, boundingY, boundingY+boundingHeight, 20, 150)+random(50);
 
-    // map the Island's green saturation to the distance from the horizon
-    float saturation = map(y, boundingY, boundingY+boundingHeight, 10, 100);
-    this.c = color(100-saturation, 140+saturation, 90-saturation);
+    this.h = this.w*3/4-random(30);   // assigns a height
+    this.x = x;   // assigns the x-position
+    this.y = y;   // assigns the y-position
+
+    // lerp the Island's green to the distance from the horizon
+    color from = color(64, 115, 158);
+    color to = color(90+5, 139+40, 63+5);
+    float amt = map(y, boundingY, boundingY+boundingHeight, 0, 1);
+    this.c = lerpColor(from, to, amt);
   }
   
   // display the island
   void display() {
-
+    // display the green island top
     fill(this.c);
-    arc(this.x, this.y, this.w+this.w/2, this.w-15, PI, TWO_PI);
+    arc(this.x, this.y, this.w+this.w/2, this.h, PI, TWO_PI);
     
+    // ocean shadow gradient under the island
     color shadedBlue = color(20, 80, 185);
     color oceanBlue = color(8+20, 75+20, 195+20);
     this.islandGradient(int(this.x-(this.w+this.w/2)/2 - 2), int(this.y), this.w+this.w/2 + 4, 20, shadedBlue, oceanBlue);
