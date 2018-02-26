@@ -12,7 +12,7 @@ void setup() {
 
   // instantiate each of the layers
   ol = new OceanLayer(300, 250, -2.5, 10);
-  rl = new RoadLayer(520, 70, -12, 8);
+  rl = new RoadLayer(520, 80, -12, 8);
 
   // draw the car
   cl = new CarLayer(180, 545, 25, 15);
