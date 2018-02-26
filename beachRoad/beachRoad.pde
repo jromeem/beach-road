@@ -10,7 +10,7 @@ CarLayer cl;
 PImage canvas;
 
 void setup() {
-  size(1000, 600);
+  size(1200, 575);
   noStroke();
 
   // instantiate each of the layers
