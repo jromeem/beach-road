@@ -27,7 +27,7 @@ class RoadLayer {
   // display the entire layer: (pavement, rails, dividers)
   void display() {
     // create the pavement
-    fill(210, 210, 200);
+    fill(210-60, 210-60, 200-60);
     rect(0, this.y, width, this.h);
 
     // display the rails and the dividers
@@ -44,8 +44,8 @@ class Rail {
   float x;  // x-position
   float y;  // y-position
   float s;  // speed
-  float railWidth = 30; 
-  float railHeight = 40;
+  float railWidth = 20;
+  float railHeight = 30;
 
   // Rail constructor
   Rail(float x, float y, float s) {
@@ -58,6 +58,7 @@ class Rail {
   void display() {
     fill(100, 100, 130);
     rect(0, this.y-this.railHeight, width, 8);
+    fill(100-20, 100-20, 130-10);
     rect(this.x, this.y-this.railHeight+3, this.railWidth, this.railHeight);
 
     // create and manage movement of the rail
