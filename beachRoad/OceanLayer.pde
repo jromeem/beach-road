@@ -15,14 +15,14 @@ class OceanLayer {
     this.isles = new Island[n];
     
     for (int i = 0; i < this.num; i++) {
-      this.isles[i] = new Island(random(0, width), random(this.h/this.num*i+this.y, this.h/this.num*i*2), y, h, -1.5); 
+      this.isles[i] = new Island(random(0, width), random(this.h/this.num*i+this.y, this.h/this.num*i*2), y, h, s); 
     }
   }
   
-  // create the ocean
+  // display the ocean
   void display() {
     // create the ocean
-    fill(8, 75, 195);
+    fill(8+40, 75+40, 195+40);
     rect(0, this.y, width, this.h);
     
     // display the islands
@@ -50,15 +50,17 @@ class Island {
     this.w = map(y, boundingY, boundingY+boundingHeight, 20, 150);
 
     // map the green saturation to the distance from the horizon
-    float saturation = map(y, boundingY, boundingY+boundingHeight, 100, 10);
-    this.c = color(90-saturation, 140+saturation, 60-saturation);
+    float saturation = map(y, boundingY, boundingY+boundingHeight, 10, 100);
+    this.c = color(100-saturation, 140+saturation, 90-saturation);
   }
   
   void display() {
     fill(this.c);
     arc(this.x, this.y, this.w, this.w, PI, TWO_PI);
-    fill(254, 215, 175);
-    rect(this.x-this.w/2.0, this.y, this.w*1.0, 3);
+    fill(8+20, 75+20, 195+20);
+    rect(this.x-this.w/2 - 5, this.y, this.w + 10, 3);
+    fill(8-20, 75-20, 195-20);
+    rect(this.x-this.w/2, this.y+3, this.w, 2);
     
     // create movement
     this.x += this.s;
