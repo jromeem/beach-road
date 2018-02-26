@@ -16,7 +16,7 @@ void setup() {
   // instantiate each of the layers
   sl = new SkyLayer(0, 300, 0.05, 8);
   ol = new OceanLayer(300, 220, -2.5, 6);
-  rl = new RoadLayer(520, 70, -12, 8);
+  rl = new RoadLayer(520, 70, -20, 8);
   cl = new CarLayer(180, 545, 25, 15);
 }
 
