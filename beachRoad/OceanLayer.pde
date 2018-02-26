@@ -63,10 +63,6 @@ class Island {
   void display() {
     fill(this.c);
     arc(this.x, this.y, this.w+this.w/2, this.w-15, PI, TWO_PI);
-    fill(8+20, 75+20, 195+20);
-    rect(this.x-this.w/2 - 5, this.y, this.w + 10, 3);
-    fill(8-20, 75-20, 195-20);
-    rect(this.x-this.w/2, this.y+3, this.w, 2);
     
     // create and manage movement of the island
     this.x += this.s;
