@@ -1,16 +1,22 @@
 // beach road sketch by Jerome Martinez
 // ~you are awesome~
 
-HillsHouses hh;
+OceanLayer ol;
+OceanLayer ol2;
+SkyLayer sl;
 
 void setup() {
-  hh = new HillsHouses(-1.5, 100, 5);
-  
-  size(800, 800);
+  sl = new SkyLayer(0, 300, 0.06, 8);
+  ol = new OceanLayer(300, 150, -1.5, 5);
+  ol2 = new OceanLayer(450, 150, -1.5, 5);
+
+  size(800, 600);
   noStroke();
 }
 
 void draw() {
   background(0);
-  hh.display();
+  sl.display();
+  ol.display();
+  // ol2.display();
 }
